@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /articles or /articles.json
   def index
@@ -64,6 +65,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :txt, :image, :author_id)
+      params.require(:article).permit(:title, :text, :image, :author_id)
     end
 end
