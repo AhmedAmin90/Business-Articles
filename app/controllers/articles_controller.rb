@@ -23,9 +23,11 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
+    @selected_category = Category.find(category_ids)
 
     respond_to do |format|
       if @article.save
+        @article.categories <<  @selected_category 
         format.html { redirect_to @article, notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
@@ -37,8 +39,14 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
+    @selected_category = Category.find(category_ids)
+    articles_categories = ArticlesCategory.all.where(article_id: @article.id)
     respond_to do |format|
       if @article.update(article_params)
+        articles_categories.each do |a|
+          a.destroy
+        end
+        @article.categories <<  @selected_category 
         format.html { redirect_to @article, notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -74,5 +82,9 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :text, :image, :author_id)
+    end
+
+    def category_ids
+      params[:selected_id]
     end
 end

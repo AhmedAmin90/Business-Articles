@@ -6,10 +6,16 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :text %>
-    <%#= f.input :image %>
     <%= f.file_field :image%>
     <%= f.hidden_field :author_id , value: current_user.id%>
+ <%= fields_for(@selected_id) do |s| %>
+      <%= s.label :categories %>
+      <%= s.collection_select :selected_id, Category.all, :id, :name %>
+    <% end %>
   </div>
+
+
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
