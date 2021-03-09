@@ -3,4 +3,7 @@ class Article < ApplicationRecord
     has_many :articles_categories
     has_many :categories , through: :articles_categories
     has_many :votes
+
+    # for images
+    has_one_attached :image
 end

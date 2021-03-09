@@ -50,6 +50,14 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
+    vote = Vote.all.where(article_id: @article.id)
+    articles_categories = ArticlesCategory.all.where(article_id: @article.id)
+    vote.each do |v|
+      v.destroy
+    end
+    articles_categories.each do |a|
+      a.destroy
+    end
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
