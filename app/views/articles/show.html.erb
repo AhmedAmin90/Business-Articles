@@ -22,8 +22,8 @@
 
 <p>
   <strong>Category:</strong>
-  <% @article.articles_categories.each do |category| %>
-  <%= category.category.name %>
+  <% @article.categories.each do |category| %>
+  <%= category.name %>
   <% end %>
 </p>
 
