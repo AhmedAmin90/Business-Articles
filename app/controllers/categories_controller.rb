@@ -1,18 +1,18 @@
 class CategoriesController < ApplicationController
     def index
         @cateogries = Category.includes(:name , :priority)
-        @articles = Article.all
-        @feature_article = Article.joins(:votes).merge(Vote.order(article_id: :desc))
+        @articles = Article.limit(4)
+        @feature_article = Article.joins(:votes).merge(Vote.order(article_id: :desc)).first
     end
 
     def new
-        @Category = Category.new
+        @category = Category.new
     end
 
     def create
       @category = Category.new(category_params)
   
-        if @Category.save
+        if @category.save
          redirect_to categories_path, notice: "Category was successfully created." 
         else
           render :new
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
       private
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:cateogry).permit(:name, :priority)
+      params.require(:category).permit(:name, :priority)
     end
 
 end
