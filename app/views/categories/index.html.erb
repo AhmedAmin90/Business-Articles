@@ -6,7 +6,7 @@
     <%= link_to  @feature_article.title , article_path(@feature_article) , class: "feature-article-title" %>
     </h5>
     <p class="card-text text-dark">
-    <%= link_to @feature_article.categories.first.name , category_path(@feature_article.categories), class: "feature-article-category" %>
+    <%= link_to @feature_article.categories.first.name , category_path(@feature_article.categories.first.id), class: "feature-article-category" %>
     </p>
   </div>
 </div>
@@ -19,7 +19,7 @@
       <%= image_tag  article.image , class: "card-img feature-img"%>
       <div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">
        <p class="card-text text-dark">
-       <%= link_to article.categories.first.name , category_path(article.categories) , class: "card-article-category" %>
+       <%= link_to article.categories.first.name , category_path(article.categories.first.id) , class: "card-article-category" %>
       </p>
       <h5 class="card-title text-dark ">
       <%= link_to  article.title , article_path(article) , class: "card-article-title" %>
