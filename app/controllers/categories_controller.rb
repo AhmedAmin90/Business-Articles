@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
     def index
-        @cateogries = Category.includes(:name , :priority)
-        @articles = Article.limit(4)
+        @articles = Article.joins(:categories).merge(Category.order(priority: :asc)).limit(4)
         @feature_article = Article.joins(:votes).merge(Vote.order(article_id: :desc)).first
+
     end
 
     def new
