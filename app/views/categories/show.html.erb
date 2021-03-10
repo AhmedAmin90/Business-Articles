@@ -3,3 +3,30 @@
 <li> <%= article.title %> </li>
 </ul>
 <% end %>
+
+<div class= "row">
+<% @articles.each do |article| %>
+    <div class="col-3 p-0 ">
+      <div class="card bg-dark text-white border-0">
+      <%= image_tag  article.image , height: "300px" %>
+    </div>
+   </div>
+   <div class="col-3 p-0 ">
+   <div class="card details-card">
+  <div class="card-body">
+    <h5 class="card-title"><%= article.categories.first.name%></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= article.title %> </h6>
+    <p class="card-text"> <%= "#{article.text.slice(0..200)}..."%> </p>
+    <p class="btn btn-warning">  <%= vote_or_unvote_btn(article) %> </p>
+    <p class="btn btn-success">  <%= article.votes.count%> </p>
+     
+   
+
+  </div>
+</div>
+   
+   </div>
+   <% end %>
+  </div>
+
+ 

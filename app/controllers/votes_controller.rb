@@ -4,9 +4,9 @@ class VotesController < ApplicationController
         @vote = Vote.create(user_id: current_user.id ,article_id: @article.id)
 
         if @vote.save
-            redirect_to article_path(@article) , notice: 'You voted the article.'
+            redirect_to category_path(@article.categories.first.id) , notice: 'You voted the article.'
         else
-            redirect_to article_path(@article), alert: 'You cannot vote this article.'
+            redirect_to category_path(@article.categories.first.id), alert: 'You cannot vote this article.'
         end
     end
     
@@ -15,9 +15,9 @@ class VotesController < ApplicationController
         vote = Vote.find_by(id: params[:id], user_id: current_user.id, article_id: @article.id)
         if vote
             vote.destroy
-            redirect_to article_path(@article), notice: 'You unvoted the article.'
+            redirect_to category_path(@article.categories.first.id), notice: 'You unvoted the article.'
           else
-            redirect_to article_path(@article), alert: 'You cannot invoted an article that you did not vote before.'
+            redirect_to category_path(@article.categories.first.id), alert: 'You cannot invoted an article that you did not vote before.'
         end
     end
 end
