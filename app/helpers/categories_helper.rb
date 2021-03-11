@@ -24,15 +24,16 @@ module CategoriesHelper
         list.html_safe
     end
 
-    def four_cards(articles)
+    def four_cards(categories)
+        
         list = '<div class= "row">'
-        articles.each do |article|
-            list += ' <div class="col-3 p-0 ">'
+        categories.each do |category|
+            list += '<div class="col-3 p-0 ">'
             list += '<div class="card bg-dark text-white border-0">'
-            list += "#{image_tag  article.image , class: "card-img feature-img"}  "
+            list += "#{image_tag  category.articles.last.image , class: "card-img feature-img"}  "
             list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
-            list += "<p class='card-text text-dark'> #{link_to article.categories.first.name , category_path(article.categories.first.id) , class: "card-article-category"} </p>"
-            list += "<h5 class='card-title text-dark '> #{ link_to  article.title , article_path(article) , class: "card-article-title" }</h5>"
+            list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category.articles.last.id) , class: "card-article-category"} </p>"
+            list += "<h5 class='card-title text-dark '> #{ link_to  category.articles.last.title , article_path(category.articles.last) , class: "card-article-title" }</h5>"
             list += '</div>'
             list += '</div>'
             list += '</div>'
@@ -41,3 +42,20 @@ module CategoriesHelper
         list.html_safe
     end
 end
+
+# def four_cards(articles)
+#     list = '<div class= "row">'
+#     articles.each do |article|
+#         list += ' <div class="col-3 p-0 ">'
+#         list += '<div class="card bg-dark text-white border-0">'
+#         list += "#{image_tag  article.image , class: "card-img feature-img"}  "
+#         list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
+#         list += "<p class='card-text text-dark'> #{link_to article.categories.first.name , category_path(article.categories.first.id) , class: "card-article-category"} </p>"
+#         list += "<h5 class='card-title text-dark '> #{ link_to  article.title , article_path(article) , class: "card-article-title" }</h5>"
+#         list += '</div>'
+#         list += '</div>'
+#         list += '</div>'
+#     end
+#     list += '</div>'
+#     list.html_safe
+# end
