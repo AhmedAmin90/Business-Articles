@@ -13,22 +13,6 @@
 </div>
 
 
-   <div class= "row">
-<% @articles.each do |article| %>
-    <div class="col-3 p-0 ">
-      <div class="card bg-dark text-white border-0">
-      <%= image_tag  article.image , class: "card-img feature-img"%>
-      <div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">
-       <p class="card-text text-dark">
-       <%= link_to article.categories.first.name , category_path(article.categories.first.id) , class: "card-article-category" %>
-      </p>
-      <h5 class="card-title text-dark ">
-      <%= link_to  article.title , article_path(article) , class: "card-article-title" %>
-      </h5>
-      </div>
-    </div>
-   </div>
-   <% end %>
-  </div>
+<%= four_cards(@articles) %>
 
 
