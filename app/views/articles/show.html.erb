@@ -1,43 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <!-- Feature img section  -->
-  <div class="card bg-dark text-white">
-   <%= image_tag @article.image , class: "card-img"%>
-  <div class="card-img-overlay">
-    <h5 class="card-title text-dark">Card title</h5>
-    <p class="card-text text-dark">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text">Last updated 3 mins ago</p>
+  <div class="card show-page-card text-white p-3">
+   <%= image_tag @article.image , class: "card-img w-75 m-auto" , height: "600px" %>
+  <div class="card-img-overlay text-center p-5">
+    <h5 class="card-title text-dark bg-light w-50 m-auto "><%= @article.title %></h5>
+    <p class="card-text text-dark m-3"><%= @article.created_at%></p>
+  
   </div>
+  <div class="text-center w-75 m-auto">
+    <p class="card-text"><%= @article.text%></p>
+    <p class="btn btn-warning w-25 ">Number of Votes: <%= @article.votes.count%></p>
+    </div>
+    <% if user_signed_in? && current_user.id == @article.author_id %>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+      <%= link_to 'Back', articles_path %>
+    <% end %>
+</div>
+<div class="text-center mt-3">
+    <%= link_to "All #{@article.categories.first.name } Articles " , category_path(@article.categories.first.id) , class: "btn bg-orange"%>
 </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+ 
 
-<p>
-  <strong>text:</strong>
-  <%= @article.text %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @article.author.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <% @article.articles_categories.each do |category| %>
-  <%= category.category.name %>
-  <% end %>
-</p>
-
-<%= vote_or_unvote_btn(@article) %>
-<%= @article.votes.count%>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
