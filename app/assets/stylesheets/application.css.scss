@@ -83,3 +83,21 @@ body {
     height: 300px;
 }
 
+// Header:
+.active-item{
+    color: #F9643F
+}
+
+.feature-article {
+    border: none;
+    border-top: #847F7B 4px solid;
+}
+
+.line{
+    width: 300px;
+    height: 4px;
+    background-color: #E83E3B;
+    position: absolute;
+    top: 96px;
+    z-index: 1;
+}

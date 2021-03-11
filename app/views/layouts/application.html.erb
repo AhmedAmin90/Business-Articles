@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-        <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 <!-- Image and text -->
-<nav class="navbar navbar-light bg-light d-flex justify-content-between px-4 ">
+<nav class="navbar navbar-light bg-light d-flex  px-4 w-15">
 
     <a class="navbar-brand" href="#">
-    <%= image_tag("logo.jpg", :size => "110x60") %>
-      Busniess Articles
-    </a>
+    <%= link_to root_path do %>
+    <%= image_tag("logo.jpg", :size => "120x80") %>
+    <% end %>
  
- <ul class= "nav">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
+ <ul class= "nav w-50 d-flex justify-content-start">
+  <li class="nav-item mx-4">
+  <%= link_to "Enterprenurship" , category_path(Category.entrepreneurship.ids) , class: "btn btn-light active-item" %>
+
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+  <li class="nav-item mx-4">
+     <%= link_to "Economy" , category_path(Category.economy.ids) , class: "btn btn-light text-secondary" %>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+  <li class="nav-item mx-4">
+     <%= link_to "Technology" , category_path(Category.technology.ids) , class: "btn btn-light text-secondary" %>
   </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  <li class="nav-item mx-4">
+      <%= link_to "Marketing" , category_path(Category.marketing.ids)  , class: "btn btn-light text-secondary"%>
   </li>
   </ul>
 
