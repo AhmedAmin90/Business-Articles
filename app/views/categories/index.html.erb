@@ -1,18 +1,10 @@
 <div class="line">
 </div>
 <div class="card bg-dark text-white m-0 p-0 feature-article">
-   <%= image_tag  @feature_article.image , class: "card-img" , height: "500px"%>
-  <div class="card-img-overlay feature-article-content d-flex flex-column justify-content-end">
-    <h5 class="card-title text-dark ">
-    <%= link_to  @feature_article.title , article_path(@feature_article) , class: "feature-article-title" %>
-    </h5>
-    <p class="card-text text-dark">
-    <%= link_to @feature_article.categories.first.name , category_path(@feature_article.categories.first.id), class: "feature-article-category" %>
-    </p>
-  </div>
+    <%=  most_voted %>
 </div>
 
 
-<%= four_cards(@articles) %>
+<%= four_cards(@four_articles) %>
 
 
