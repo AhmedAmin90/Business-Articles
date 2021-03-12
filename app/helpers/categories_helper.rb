@@ -32,7 +32,7 @@ module CategoriesHelper
             list += '<div class="card bg-dark text-white border-0">'
             list += "#{image_tag  category.articles.last.image , class: "card-img feature-img"}  "
             list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
-            list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category.articles.last.id) , class: "card-article-category"} </p>"
+            list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category) , class: "card-article-category"} </p>"
             list += "<h5 class='card-title text-dark '> #{ link_to  category.articles.last.title , article_path(category.articles.last) , class: "card-article-title" }</h5>"
             list += '</div>'
             list += '</div>'
