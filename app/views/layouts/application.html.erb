@@ -14,24 +14,24 @@
 
 <nav class="navbar navbar-light bg-light d-flex  px-4 w-15">
 
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
     <%= link_to root_path do %>
     <%= image_tag("logo.jpg", :size => "120x80") %>
     <% end %>
  
  <ul class= "nav w-50 d-flex justify-content-start">
   <li class="nav-item mx-4">
-  <%= link_to "Enterprenurship" , category_path(Category.entrepreneurship.ids) , class: "btn btn-light active-item" %>
+  <%= link_to "Enterprenurship" , category_path(4) , class: "btn btn-light active-item" %>
 
   </li>
   <li class="nav-item mx-4">
-     <%= link_to "Economy" , category_path(Category.economy.ids) , class: "btn btn-light text-secondary" %>
+     <%= link_to "Economy" , category_path(2) , class: "btn btn-light text-secondary" %>
   </li>
   <li class="nav-item mx-4">
-     <%= link_to "Technology" , category_path(Category.technology.ids) , class: "btn btn-light text-secondary" %>
+     <%= link_to "Technology" , category_path(3) , class: "btn btn-light text-secondary" %>
   </li>
   <li class="nav-item mx-4">
-      <%= link_to "Marketing" , category_path(Category.marketing.ids)  , class: "btn btn-light text-secondary"%>
+      <%= link_to "Marketing" , category_path(1)  , class: "btn btn-light text-secondary"%>
   </li>
   </ul>
 

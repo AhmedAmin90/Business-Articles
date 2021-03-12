@@ -6,4 +6,9 @@ class Article < ApplicationRecord
 
     # for images
     has_one_attached :image
+
+    # validations:
+    validates :title, presence: true
+    validates :text, presence: true, length: { minimum: 20 }
+   
 end

@@ -4,9 +4,13 @@ class Category < ApplicationRecord
 
    
 
-    scope :entrepreneurship, -> { where(:name => "entrepreneurship")}
-    scope :economy, -> { where(:name => "Economy")}
-    scope :technology, -> { where(:name => "Technology")}
-    scope :marketing, -> { where(:name => "marketing")}
+    scope :entrepreneurship, -> { find_by_name("entrepreneurship")}
+    scope :economy, -> { find_by_name("Economy")}
+    scope :technology, -> { find_by_name("Technology")}
+    scope :marketing, -> { find_by_name("marketing")}
+
+    
+    validates :name , presence: true
+    validates :priority , presence: true
    
 end
