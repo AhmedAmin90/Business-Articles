@@ -1,0 +1,24 @@
+  def columns(articles)
+        group_one = []
+        group_two = []
+        @articles_one = []
+        @articles_two = []
+
+        articles.each_with_index do |article , i|
+            group_one <<  article if i % 2 == 0 
+            group_two << article if i % 2 != 0
+        end
+
+        group_one.each_with_index do |article , i|
+            @articles_one << article if i % 2 == 0
+            @articles_two << article if i % 2 != 0 
+        end
+
+        group_two.each_with_index do |num , i|
+            @articles_one << num if i % 2 == 0
+            @articles_two << num if i % 2 != 0 
+        end
+
+      
+        
+    end
