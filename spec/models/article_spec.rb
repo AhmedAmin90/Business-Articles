@@ -5,7 +5,6 @@ RSpec.describe Article, type: :model do
     it { should belong_to(:author) }
     it { should have_many(:votes) }
     it { should have_many(:articles_categories) }
-    
   end
   describe 'Title Presence' do
     it { should validate_presence_of(:title) }
@@ -22,6 +21,4 @@ RSpec.describe Article, type: :model do
   describe 'Text length' do
     it { should validate_length_of(:text) }
   end
-
-  
 end
