@@ -12,13 +12,13 @@
     </div>
      <div class= "m-2">
     <%#= f.file_field :image%>
-    <%= f.file_field :image, class: 'form-control', direct_upload: true %> 
+    <%= f.file_field :image, class: 'form-control', direct_upload: true , name: 'image-file' %> 
     </div>
      <div class= "m-2">
     <%= f.hidden_field :author_id , value: current_user.id%>
-    <%= fields_for(@selected_id) do |s| %>
-      <%= s.label "Select The category" %>
-      <%= s.collection_select :selected_id, Category.all, :id, :name %>
+    <%= fields_for(@selected_id) do |f| %>
+      <%= f.label "Select The category" %>
+      <%= f.collection_select :selected_id, Category.all, :id, :name %>
     <% end %>
     </div>
   </div>
