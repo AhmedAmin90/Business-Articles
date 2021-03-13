@@ -24,7 +24,7 @@ module CategoriesHelper
           if articles_one.include?(article)
             list += "<div class='col-3 p-0'> "
             list += '<div class="card bg-dark text-white border-0"> '
-            list += "#{image_tag  article.image , height: '300px'}  "
+            list += "#{ image_tag article.image }  " 
             list += '</div>'
             list += '</div>'
             list += '<div class="col-3 p-0">'
@@ -52,7 +52,7 @@ module CategoriesHelper
             list += '</div>'
             list += "<div class='col-3 p-0'> "
             list += '<div class="card bg-dark text-white border-0"> '
-            list += "#{image_tag  article.image , height: '300px'}  "
+            list += "#{ image_tag article.image }  "
             list += '</div>'
             list += '</div>'
           end 
@@ -62,20 +62,27 @@ module CategoriesHelper
     end
 
     def four_cards(categories)
-        
+      if  Category.all.any? && Article.all.any?
         list = '<div class= "row">'
         categories.each do |category|
             list += '<div class="col-3 p-0 ">'
             list += '<div class="card bg-dark text-white border-0">'
-            list += "#{image_tag  category.articles.last.image , class: "card-img feature-img"}  "
+            list += "#{ image_tag category.articles.last.image , class: "card-img feature-img" }  "
             list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
             list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category) , class: "card-article-category"} </p>"
             list += "<h5 class='card-title text-dark '> #{ link_to  category.articles.last.title , article_path(category.articles.last) , class: "card-article-title" }</h5>"
             list += '</div>'
             list += '</div>'
             list += '</div>'
-        end
-        list += '</div>'
-        list.html_safe
+            list += '</div>'
+            list.html_safe
+            end
+       else 
+            list = '<div class= "text-center m-5 bg-gray ">'
+            list += '<h1 class="text-center text-warning"> No Articles Yet </h1>'
+            list += '</div>'
+            list.html_safe
+       end
     end
+       
 end

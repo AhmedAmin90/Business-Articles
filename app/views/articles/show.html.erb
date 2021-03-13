@@ -2,7 +2,8 @@
 
 <!-- Feature img section  -->
   <div class="card bg-gray  text-white p-3">
-   <%= image_tag @article.image , class: "card-img w-75 m-auto" , height: "600px" %>
+   <%= image_tag cloudinary_url(@article.image.key) , class: "card-img w-75 m-auto" , height: "600px" %>
+
   <div class="card-img-overlay text-center p-5">
     <h5 class="card-title text-dark bg-light w-50 m-auto "><%= @article.title %></h5>
     <p class="card-text text-dark m-3"><%= @article.created_at%></p>

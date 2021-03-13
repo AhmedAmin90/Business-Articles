@@ -29,6 +29,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'hirb'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+gem 'cloudinary' 
 
 
 # Reduces boot times through caching; required in config/boot.rb
