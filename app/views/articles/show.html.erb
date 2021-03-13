@@ -17,6 +17,7 @@
 <div class="text-center mt-3">
     <%= link_to "All #{@article.categories.first.name } Articles " , category_path(@article.categories.first.id) , class: "btn bg-orange"%>
     <%= edit_articles(@article)%>
+    <%= link_to 'Back to Home page', root_path ,  class: "btn bg-warning" %>
 </div>
 
 

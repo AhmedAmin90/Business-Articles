@@ -24,23 +24,23 @@ module CategoriesHelper
           if articles_one.include?(article)
             list += "<div class='col-3 p-0'> "
             list += '<div class="card bg-dark text-white border-0"> '
-            list += "#{ image_tag article.image }  " 
+            list += "#{ image_tag article.image ,  height: '300px'}  " 
             list += '</div>'
             list += '</div>'
             list += '<div class="col-3 p-0">'
-            list += '<div class="card details-card border-0">'
-            list += '<div class="card-body">'
-            list += " <h5 class='card-title'> #{article.categories.first.name}</h5>"
-            list += " <h6 class='card-subtitle mb-2 text-muted'> #{article.title} </h6>"
+            list += '<div class="card details-card border-0 rounded-0">'
+            list += '<div class="card-body ">'
+            list += " <h5 class='card-title text-yellow'> #{article.categories.first.name }</h5>"
+            list += " <h6 class='card-subtitle mb-2  text-gray fw-bold'> #{article.title} </h6>"
             list += " <p class='card-text'> #{article.text.slice(0..200)}... </p>"
-            list += "<p class='btn btn-warning m-1'>  #{vote_or_unvote_btn(article)} </p>"
-            list += "<p class='btn bg-orange m-1'> Votes: #{article.votes.count} </p>"
+            list += "<p class='btn btn-warning mx-1 mt-2'>  #{vote_or_unvote_btn(article)} </p>"
+            list += "<p class='btn bg-orange mx-1 mt-2'> Votes: #{article.votes.count} </p>"
             list += '</div>'
             list += '</div>'
             list += '</div>'
           else
             list += '<div class="col-3 p-0">'
-            list += '<div class="card details-card border-0">'
+            list += '<div class="card details-card border-0 rounded-0">'
             list += '<div class="card-body">'
             list += " <h5 class='card-title'> #{article.categories.first.name}</h5>"
             list += " <h6 class='card-subtitle mb-2 text-muted'> #{article.title} </h6>"
@@ -52,7 +52,7 @@ module CategoriesHelper
             list += '</div>'
             list += "<div class='col-3 p-0'> "
             list += '<div class="card bg-dark text-white border-0"> '
-            list += "#{ image_tag article.image }  "
+            list += "#{ image_tag article.image , height: '300px' }  "
             list += '</div>'
             list += '</div>'
           end 
@@ -62,15 +62,16 @@ module CategoriesHelper
     end
 
     def four_cards(categories)
-      list = '<div class= "row">'
+      list = '<div class="row">'
+      
       if  categories.all.any? && Article.all.any?
         categories.each do |category|
           if category.articles.any?
-           
             list += '<div class="col-3 p-0 ">'
+            list += '<div class="card  border-0">'
             list += '<div class="card bg-dark text-white border-0">'
-            list += "#{ image_tag category.articles.last.image , class: "card-img feature-img" }  "
-            list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
+            list += "#{ image_tag category.articles.last.image , height: "300px" }  "
+            list += '<div class="card-img-overlay rounded-0  card-article-content d-flex flex-column justify-content-between">'
             list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category) , class: "card-article-category"} </p>"
             list += "<h5 class='card-title text-dark '> #{ link_to  category.articles.last.title , article_path(category.articles.last) , class: "card-article-title" }</h5>"
             list += '</div>'
@@ -79,15 +80,42 @@ module CategoriesHelper
             list += '</div>'
             
             end
+            
           end
-          list.html_safe
+          
        else 
-            list = '<div class= "text-center m-5 bg-gray ">'
+            list += '<div class= "text-center m-5 bg-gray ">'
             list += '<h1 class="text-center text-warning"> No Articles Yet </h1>'
-            list += '</div>'
-         
+            list += '</div> </div>'
        end
+       list += '</div>'
        list.html_safe
     end
        
 end
+
+
+    # def four_cards(categories)
+    #   list = '<div class="col-3 p-0 ">'
+    #   if  categories.all.any? && Article.all.any?
+    #     categories.each do |category|
+    #       if category.articles.any?
+    #         list += '<div class="card bg-dark text-white border-0">'
+    #         list += "#{ image_tag category.articles.last.image  }  "
+    #         list += '<div class="card-img-overlay card-article-content d-flex flex-column justify-content-between">'
+    #         list += "<p class='card-text text-dark'> #{link_to category.name , category_path(category) , class: "card-article-category"} </p>"
+    #         list += "<h5 class='card-title text-dark '> #{ link_to  category.articles.last.title , article_path(category.articles.last) , class: "card-article-title" }</h5>"
+    #         list += '</div>'
+    #         list += '</div>'
+            
+    #         end
+            
+    #       end
+          
+    #    else 
+    #         list += '<div class= "text-center m-5 bg-gray ">'
+    #         list += '<h1 class="text-center text-warning"> No Articles Yet </h1>'
+    #    end
+    #    list += '</div>'
+    #    list.html_safe
+    # end

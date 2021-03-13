@@ -7,8 +7,8 @@ module ArticlesHelper
         if Vote.all.empty?
             list = "#{image_tag Article.last.image }"  
             list += '<div class="card-img-overlay feature-article-content d-flex flex-column justify-content-end">'
-            list +=  " <h5 class='card-title text-dark '> #{link_to  Article.last.title , article_path(Article.last) , class: "feature-article-title"} </h5> "
-            list += " <p class='card-text text-dark'> #{link_to Article.last.categories.first.name , category_path(Article.last.categories.first.id), class: "feature-article-category"} </p>"
+            list +=  "<h5 class='card-title text-dark '> #{link_to  Article.last.title , article_path(Article.last) , class: "feature-article-title"} </h5> "
+            list += "<p class='card-text text-dark'> #{link_to Article.last.categories.first.name , category_path(Article.last.categories.first.id), class: "feature-article-category"} </p>"
             list += ' </div>'
             list.html_safe
         else
