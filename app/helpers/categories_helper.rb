@@ -62,9 +62,11 @@ module CategoriesHelper
     end
 
     def four_cards(categories)
-      if  Category.all.any? && Article.all.any?
-        list = '<div class= "row">'
+      list = '<div class= "row">'
+      if  categories.all.any? && Article.all.any?
         categories.each do |category|
+          if category.articles.any?
+           
             list += '<div class="col-3 p-0 ">'
             list += '<div class="card bg-dark text-white border-0">'
             list += "#{ image_tag category.articles.last.image , class: "card-img feature-img" }  "
@@ -75,14 +77,17 @@ module CategoriesHelper
             list += '</div>'
             list += '</div>'
             list += '</div>'
-            list.html_safe
+            
             end
+          end
+          list.html_safe
        else 
             list = '<div class= "text-center m-5 bg-gray ">'
             list += '<h1 class="text-center text-warning"> No Articles Yet </h1>'
             list += '</div>'
-            list.html_safe
+         
        end
+       list.html_safe
     end
        
 end
