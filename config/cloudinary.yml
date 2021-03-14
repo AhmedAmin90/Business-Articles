@@ -3,17 +3,17 @@ development:
   cloud_name: dpfuggind
   api_key: '599456335486528'
   api_secret: VqPuVUUlFQ2_RIl9KmguxG0Hclk
-  enhance_image_tag: 'true'
-  static_file_support: 'false'
+  enhance_image_tag: true
+  static_file_support: false
 production:
   cloud_name: dpfuggind
   api_key: '599456335486528'
   api_secret: VqPuVUUlFQ2_RIl9KmguxG0Hclk
-  enhance_image_tag: 'true'
-  static_file_support: 'true'
+  enhance_image_tag: true
+  static_file_support: true
 test:
   cloud_name: dpfuggind
   api_key: '599456335486528'
   api_secret: VqPuVUUlFQ2_RIl9KmguxG0Hclk
-  enhance_image_tag: 'true'
-  static_file_support: 'false'
+  enhance_image_tag: true
+  static_file_support: false
