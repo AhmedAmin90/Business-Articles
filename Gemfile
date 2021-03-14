@@ -27,12 +27,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'cloudinary'
 gem 'devise'
+gem 'figaro'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'hirb'
 gem 'rubocop'
 gem 'simple_form'
-gem "figaro"
-
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
