@@ -46,6 +46,10 @@ and the second one four boxes each box represent one category and contain the de
 - Devise.
 - Cloudinary and Active storage.
 - Deployed to Heroku.
+
+## Test:
+- Model Test for relations and validations.
+- Feature Test for users and articles.
  
 ## Setup
 

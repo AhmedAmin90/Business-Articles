@@ -35,7 +35,7 @@ module CategoriesHelper
         list += " <p class='card-subtitle text-warning fw-bold'> Author: #{article.author.name} </p>"
         list += " <p class='card-text'> #{article.text.slice(0..150)}... </p>"
         list += "<p class='btn btn-warning mx-1 mt-2'>  #{vote_or_unvote_btn(article)} </p> <p class='btn bg-orange mx-1 mt-2'> Votes: #{article.votes.count} </p> </div> </div> </div>"
-        
+
       else
         list += '<div class="col-3 p-0">'
         list += '<div class="card details-card border-0 rounded-0">'
