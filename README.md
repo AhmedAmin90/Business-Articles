@@ -75,13 +75,19 @@ Note: "It is preferable to install gems with 2.1.4 bundle version"
    rails db:migrate
 ```
 
-6. Setup seed file to initiate Categories:
+6. Install webpack:
+
+```
+bundle exec rake webpacker:install 
+```
+
+7. Setup seed file to initiate Categories:
 
 ```
    rails db:seed
 ```
 
-7. Open the local server:
+8. Open the local server:
 
 ```bash
 bin/rails server

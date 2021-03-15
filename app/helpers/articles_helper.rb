@@ -55,4 +55,15 @@ module ArticlesHelper
 
     list.html_safe
   end
+
+  def error_msg(article)
+    list = '<div>'
+    if article.errors.full_messages.any? 
+          article.errors.full_messages.each do |error_message| 
+          list += "<p> #{error_message if @article.errors.full_messages.first == error_message} </p>"
+        end 
+     end
+     list += "</div>"
+     list.html_safe
+  end
 end
