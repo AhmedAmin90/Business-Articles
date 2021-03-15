@@ -15,9 +15,11 @@
      <div class= "m-2">
     <%= f.hidden_field :author_id , value: current_user.id%>
     <%= fields_for(@selected_id) do |f| %>
-      <%= f.label "Select The category" %>
-      <%= f.collection_select :selected_id, Category.all, :id, :name %>
+     <strong><%= f.label :categories %></strong><br><br>
+      <%= f.collection_select(:selected_id, Category.all , :id, :name, {selected: 2, include_hidden: false}, { multiple: true }) %>
     <% end %>
+    
+
     </div>
   </div>
 

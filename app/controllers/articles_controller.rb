@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
+    @categories = Category.all
     @article = Article.new(article_params)
     @selected_category = Category.find(category_ids)
 
@@ -69,7 +70,7 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :text, :image, :author_id)
+    params.require(:article).permit(:title, :text, :image, :author_id , category_ids: [])
   end
 
   def category_ids
