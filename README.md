@@ -91,7 +91,7 @@ bin/rails server
 - I followed the design pattern according:https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version
   Thanks to: Nelson Sakwa  for this creative design.
 - The design is Not responsive , so I created the styles according my screen size and it will be appear in the presentation video. So may be some changes in the style may be present on different screen sizes.
-- Thanks to My stand up team member: Miguel Ricaño @mricanho for his outstanding help in Heroku issues.
+- Thanks to My stand up team member: Miguel Ricaño [@mricanho](https://github.com/mricanho) for his outstanding help in Heroku issues.
 
 
 ## Authors
