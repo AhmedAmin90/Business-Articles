@@ -24,7 +24,7 @@ RSpec.feature 'Error if some fields in article not present', type: :feature do
         fill_in 'Text', with: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
         select 'one', from: 'selected_id'
         click_on 'Create Article'
-        expect(page).to have_content('Please review the problems below')
+        expect(page).to have_content("Image can't be blank")
       end
     end
   end

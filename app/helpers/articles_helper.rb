@@ -47,13 +47,12 @@ module ArticlesHelper
 
   def edit_articles(article)
     list = if user_signed_in? && current_user.id == article.author_id
-             "#{link_to 'Edit The Article', edit_article_path(@article), class: 'btn btn-secondary'} "
-             "#{link_to 'Delete', article , method: :delete, data: { confirm: 'Are you sure?' }  , class: "btn bg-danger" }"
+             "#{link_to 'Edit The Article', edit_article_path(@article), class: 'btn btn-secondary'}
+            #{link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn bg-danger'} "
            else
              "#{link_to 'Back To Home page', root_path, class: 'btn btn-secondary'} "
            end
+
     list.html_safe
   end
-
-
 end
