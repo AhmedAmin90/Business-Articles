@@ -1,20 +1,20 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 #  BUSINESS ARTICLES !
  
-> In this project, I created a web application using Ruby on Rails for writing business articles dividing into four categories (Enterprenurship, Marketing, Economy and Technology).
+> In this project, I created a web application using Ruby on Rails for writing business articles dividing into four categories (Entrepreneurship, Marketing, Economy, and Technology).
 # In this application:
 - You can create a new user.
 - Users can create and vote articles and edit and delete only their articles.
 - The header and footer are fixed for all pages.
-- The home page contains two sections, the main section which has the article with large number of votes:
+- The home page contains two sections, the main section which has the article with the largest number of votes:
 
 <img src="./imgs/homepage-1.png">
 
-and the second one four boxes each box represent one category and contain the details of most recent article in this category.
+and the second one four boxes each box represent one category and contain the details of the most recent article in this category.
 
 <img src="./imgs/homepage-2.png">
 
-- The category archive page contain all articles cards under this category, and this card contains:
+- The category archive page contains all articles cards under this category, and this card contains:
 1. Title
 2. Author name
 3. 150 letters from the article.
@@ -31,7 +31,7 @@ and the second one four boxes each box represent one category and contain the de
 [Live Link](https://gentle-taiga-48607.herokuapp.com/)
 
 
-## Presntation Video:
+## Presentation Video:
 
 [Presentation Link](https://www.loom.com/share/59b96d70737441db83810f1dfd60da12)
 
@@ -40,7 +40,7 @@ and the second one four boxes each box represent one category and contain the de
 - Ruby (v. 2.7.2).
 - Ruby on Rails (v. 6.1.1).
 - Rubocop.
-- Rsepc.
+- RSpec.
 - Capybara.
 - Bootstrap.
 - Devise.
@@ -75,7 +75,7 @@ Note: "It is preferable to install gems with 2.1.4 bundle version"
    rails db:migrate
 ```
 
-6. Setup seed file to intiate Categories:
+6. Setup seed file to initiate Categories:
 
 ```
    rails db:seed
@@ -90,8 +90,8 @@ bin/rails server
 # Notes:
 - I followed the design pattern according:https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version
   Thanks to: Nelson Sakwa  for this creative design.
-- The design is Not responsive , so I created the styles according my screen size and it will be appear in the presentation video. So may be some changes in the style may be present on different screen sizes.
-- Thanks to My stand up team member: Miguel Ricaño [@mricanho](https://github.com/mricanho) for his outstanding help in Heroku issues.
+- The design is Not responsive, so I created the styles according to my screen size and it will appear in the presentation video. So some changes in the style may be present on different screen sizes.
+- Thanks to My stand-up team member: Miguel Ricaño [@mricanho](https://github.com/mricanho) for his outstanding help in Heroku issues.
 
 
 ## Authors
@@ -111,5 +111,3 @@ Give a star if you like this project!
 
 ## License
 <p>This project is <a href="./LICENSE">MIT</a> licensed.</p>
-
-
