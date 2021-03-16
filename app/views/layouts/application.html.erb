@@ -5,12 +5,70 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+<nav class="navbar navbar-light bg-light d-flex  px-4 w-15">
+
+    <a class="navbar-brand ">
+    <%= link_to root_path do %>
+    <%= image_tag("logo.jpg", :size => "120x80")   %>
+    <% end %>
+ 
+ <ul class= "nav w-50 d-flex justify-content-start">
+  <li class="nav-item mx-4">
+  <%= link_to "Enterprenurship" , category_path(1) , class: "btn btn-light active-item" %>
+
+  </li>
+  <li class="nav-item mx-4">
+   <%= link_to "Marketing" , category_path(2)  , class: "btn btn-light text-secondary"%>
+  </li>
+  <li class="nav-item mx-4">
+  <%= link_to "Economy" , category_path(3) , class: "btn btn-light text-secondary" %>
+  </li>
+  <li class="nav-item mx-4">
+    <%= link_to "Technology" , category_path(4) , class: "btn btn-light text-secondary" %>
+  </li>
+  </ul>
+
+<%= header_sign %>
+</nav>
+  
+  <%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <footer class="bg-gray d-flex justify-content-around">
+    <div class="justify-self-center ">
+        <a class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag("logo.jpg", :size => "60x60") %>
+        <% end %>
+    </div>
+    <ul class= "nav d-flex  justify-content-end">
+      <li class="nav-item mx-4">
+      <%= link_to "privacy policy" , "http://www.google.com" , class: "feature-article-title" %>
+      </li>
+      <li class="nav-item mx-4">
+      <%= link_to "Terms & Condition" , "http://www.google.com" , class: "feature-article-title" %>
+     </li>
+     <li class="nav-item mx-4">
+      <p class="text-light"> CopyRight 2021 Ahmed Amin </p>
+     </li>
+  </ul>
+
+  <ul class= "nav  d-flex justify-content-end ">
+    <li class="nav-item mx-4">
+      <%= link_to "LinkedIn" , "https://www.linkedin.com/in/web-developer/" , class: "btn btn-primary rounded-circle" %>
+      </li>
+      <li class="nav-item mx-4">
+      <%= link_to "Github" , "https://github.com/AhmedAmin90" , class: "btn btn-dark rounded-circle" %>
+     </li>
+  </ul>
+
+  </footer>
   </body>
 </html>

@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+// Homepage style:
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #4e443e;
+}
+
+.feature-article-content {
+  background: rgb(35, 34, 45);
+  background: linear-gradient(0deg, rgba(35, 34, 45, 1) 0%, rgba(135, 135, 152, 0.2) 34%, rgba(255, 255, 255, 0.1) 45%);
+}
+
+.feature-article-title {
+  color: #f9643f;
+  text-decoration: none;
+}
+
+.feature-article-category {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+// 4Cards
+.feature-img {
+  height: 200px;
+}
+
+.card-article-content {
+  background: rgb(35, 34, 45);
+  background: linear-gradient(0deg, rgba(35, 34, 45, 1) 0%, rgba(135, 135, 152, 0.2) 45%, rgba(255, 255, 255, 0.1) 45%);
+}
+
+.card-article-category {
+  color: #f9643f;
+  font-weight: bold;
+  border-bottom: yellow 2px solid;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+.card-article-title {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+// Category page:
+.details-card {
+  height: 300px;
+}
+
+// Header:
+.active-item {
+  color: #f9643f;
+}
+
+.feature-article {
+  border: none;
+  border-top: #847f7b 4px solid;
+}
+
+.line {
+  width: 300px;
+  height: 4px;
+  background-color: #e83e3b;
+  position: absolute;
+  top: 96px;
+  z-index: 1;
+}
+
+// show page
+.bg-gray {
+  background-color: #4e443e;
+}
+
+.text-gray {
+  color: #4e443e;
+  font-size: 20px;
+}
+
+.bg-orange {
+  background-color: #f9643f;
+}
+
+.text-orange {
+  color: #f9643f;
+}
+
+.text-yellow {
+  color: #f89d3d;
+  border-bottom: #f89d3d 2px solid;
+  padding-bottom: 2px;
+}
