@@ -6,6 +6,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @articles = Article.includes(:categories, :author, :votes).where(categories: { name: @category.name })
+    @articles = Article.includes(:categories, :author, :votes).where(categories: { name: @category.name }).order(created_at: :desc)
   end
 end
