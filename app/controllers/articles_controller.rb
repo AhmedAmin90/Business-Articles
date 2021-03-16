@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :before_create, only: %i[create]
+  before_action :before_update, only: %i[update]
+  before_action :before_destory, only: %i[destroy]
   before_action :authenticate_user!, except: %i[index show]
 
   # GET /articles/1 or /articles/1.json
@@ -15,14 +18,12 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @categories = Category.all
-    @article = Article.new(article_params)
-    @selected_category = Category.find(category_ids)
-
     respond_to do |format|
       if @article.save
         @article.categories << @selected_category
-        format.html { redirect_to category_path(@article.categories.first.id), notice: 'Article was successfully created.' }
+        format.html do
+          redirect_to category_path(@article.categories.first.id), notice: 'Article was successfully created.'
+        end
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -33,13 +34,13 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
-    @selected_category = Category.find(category_ids)
-    articles_categories = ArticlesCategory.all.where(article_id: @article.id)
     respond_to do |format|
       if @article.update(article_params)
-        articles_categories.each(&:destroy)
+        @articles_categories.each(&:destroy)
         @article.categories << @selected_category
-        format.html { redirect_to category_path(@article.categories.first.id), notice: 'Article was successfully updated.' }
+        format.html do
+          redirect_to category_path(@article.categories.first.id), notice: 'Article was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,10 +51,8 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-    vote = Vote.all.where(article_id: @article.id)
-    articles_categories = ArticlesCategory.all.where(article_id: @article.id)
-    vote.each(&:destroy)
-    articles_categories.each(&:destroy)
+    @vote.each(&:destroy)
+    @articles_categories.each(&:destroy)
     @article.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Article was successfully destroyed.' }
@@ -70,10 +69,26 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :text, :image, :author_id , category_ids: [])
+    params.require(:article).permit(:title, :text, :image, :author_id, category_ids: [])
   end
 
   def category_ids
     params[:selected_id]
+  end
+
+  def before_create
+    @categories = Category.all
+    @article = Article.new(article_params)
+    @selected_category = Category.find(category_ids)
+  end
+
+  def before_update
+    @selected_category = Category.find(category_ids)
+    @articles_categories = ArticlesCategory.all.where(article_id: @article.id)
+  end
+
+  def before_destory
+    @vote = Vote.all.where(article_id: @article.id)
+    @articles_categories = ArticlesCategory.all.where(article_id: @article.id)
   end
 end
