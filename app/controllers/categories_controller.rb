@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(:articles).order(priority: :asc)
-    @articles = Article.includes(:categories, :votes)
+    @articles = Article.includes(:categories, :votes).all
   end
 
   def show
